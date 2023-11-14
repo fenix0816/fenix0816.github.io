@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/one_page.css">
 </head>
@@ -13,7 +14,7 @@
 <body>
     <header class="header">
         <div class="container">
-            <div class="header-row">
+            <div class="header-row wow animate__animated animate__bounce">
                 <div class="logo">
                     <img src="assets/images/one_page/logo.svg" alt="LOGO">
                 </div>
@@ -46,7 +47,7 @@
     <div class="page p-1">
         <div class="container">
             <div class="page-position">
-                <div class="page-row">
+                <div class="page-row wow animate__animated animate__bounce animate__delay-2s">
                     <div class="left-side">
                         <h1 class="slogan">加入赫綵，人生精彩</h1>
                         <div class="content">
@@ -73,35 +74,35 @@
     <div class="p-2">
         <h1 class="slogan">課程顧問</h1>
         <div class="flow">
-            <div class="flow-item">
+            <div class="flow-item wow animate__animated animate__bounce">
                 <div class="item-circle"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
                     <div>深度了解需求，給予最適合的建議</div>
                 </div>
             </div>
-            <div class="flow-item">
+            <div class="flow-item wow animate__animated animate__bounce">
                 <div class="item-circle" style="background-color: yellow"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
                     <div>深度了解需求，給予最適合的建議</div>
                 </div>
             </div>
-            <div class="flow-item">
+            <div class="flow-item wow animate__animated animate__bounce">
                 <div class="item-circle"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
                     <div>深度了解需求，給予最適合的建議</div>
                 </div>
             </div>
-            <div class="flow-item">
+            <div class="flow-item wow animate__animated animate__bounce">
                 <div class="item-circle"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
                     <div>深度了解需求，給予最適合的建議</div>
                 </div>
             </div>
-            <div class="flow-item">
+            <div class="flow-item wow animate__animated animate__bounce">
                 <div class="item-circle"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
@@ -124,5 +125,9 @@
         </div>
     </footer>
 </body>
+<script src="assets/js/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
 
 </html>

@@ -12,12 +12,15 @@
     justify-content: center;
     font-size: 2rem;
     font-weight: 800;
-    transition-duration: 10s;
+    transition-duration: 1s;
+    position: relative;
+    left: 0;
 }
 
 .block.change-color {
     background: yellow;
     color: red;
+    left: 200px;
 }
 
 

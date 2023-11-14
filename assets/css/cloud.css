@@ -1,8 +1,8 @@
-.wrap {
+.bg {
     width: 100%;
     height: 100vh;
     display: flex;
-    background: rgb(29, 181, 219);
+    background: rgb(29, 95, 219);
     position: relative;
     overflow: hidden;
 }
@@ -19,18 +19,6 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-fill-mode: both;
-
-}
-
-.cloud::before {
-    content: '';
-    position: absolute;
-    top: -170px;
-    right: 61px;
-    width: 300px;
-    height: 300px;
-    border-radius: 1000px;
-    background: inherit
 }
 
 .cloud::after {
@@ -40,6 +28,17 @@
     left: 61px;
     width: 100px;
     height: 100px;
+    border-radius: 1000px;
+    background: inherit
+}
+
+.cloud::before {
+    content: '';
+    position: absolute;
+    top: -170px;
+    right: 61px;
+    width: 300px;
+    height: 300px;
     border-radius: 1000px;
     background: inherit
 }
@@ -62,6 +61,6 @@
 
     100% {
         left: 100%;
-        background-color: rgb(255, 255, 255);
+        background-color: red;
     }
 }

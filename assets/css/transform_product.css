@@ -13,7 +13,6 @@
 .product-item {
     background: #dedede;
     padding: 10px;
-    overflow: hidden;
 }
 
 .product-image {
@@ -25,6 +24,7 @@
     justify-content: center;
     margin-bottom: 20px;
     position: relative;
+    overflow: hidden;
 }
 
 .product-image img {
@@ -32,16 +32,15 @@
 }
 
 .product-discount-bar {
-    height: 30px;
-    width: 100%;
-    background-color: red;
+    position: absolute;
+    top: 16px;
+    right: -75px;
+    background: rgb(238, 60, 60);
     color: #fff;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 13px;
-    right: -75px;
-    transform: rotate(35deg);
-
+    width: 100%;
+    transform: rotate(45deg);
 }
