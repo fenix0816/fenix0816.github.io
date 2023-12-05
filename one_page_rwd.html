@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Page</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/one_page.css">
+    <link rel="stylesheet" href="assets/css/one_page_rwd.css">
 </head>
 
 <body>
     <header class="header">
         <div class="container">
-            <div class="header-row" data-aos="fade-up">
+            <input type="checkbox" id="mobile-menu-trigger">
+            <div class="header-row">
                 <div class="logo">
                     <img src="assets/images/one_page/logo.svg" alt="LOGO">
                 </div>
@@ -33,13 +34,18 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#ccc">
                                 <div class="en">Courses</div>
                                 <div class="zh">課程總覽</div>
                             </a>
                         </li>
                     </ul>
                 </div>
+                <label for="mobile-menu-trigger" class="mobile-menu-switch">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
             </div>
         </div>
     </header>
@@ -47,7 +53,7 @@
     <div class="page p-1">
         <div class="container">
             <div class="page-position">
-                <div class="page-row" data-aos="fade-down">
+                <div class="page-row">
                     <div class="left-side">
                         <h1 class="slogan">加入赫綵，人生精彩</h1>
                         <div class="content">
@@ -71,38 +77,38 @@
         </div>
     </div>
 
-    <div class="p-2">
+    <div class="p-2" id="ccc">
         <h1 class="slogan">課程顧問</h1>
         <div class="flow">
-            <div class="flow-item" data-aos="fade-left">
+            <div class="flow-item">
                 <div class="item-circle"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
                     <div>深度了解需求，給予最適合的建議</div>
                 </div>
             </div>
-            <div class="flow-item" data-aos="fade-right">
+            <div class="flow-item">
                 <div class="item-circle" style="background-color: yellow"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
                     <div>深度了解需求，給予最適合的建議</div>
                 </div>
             </div>
-            <div class="flow-item" data-aos="fade-left">
+            <div class="flow-item">
                 <div class="item-circle"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
                     <div>深度了解需求，給予最適合的建議</div>
                 </div>
             </div>
-            <div class="flow-item" data-aos="fade-right">
+            <div class="flow-item">
                 <div class="item-circle"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
                     <div>深度了解需求，給予最適合的建議</div>
                 </div>
             </div>
-            <div class="flow-item" data-aos="fade-right">
+            <div class="flow-item">
                 <div class="item-circle"></div>
                 <div class="item-content">
                     <h2>需求訪談</h2>
@@ -125,9 +131,5 @@
         </div>
     </footer>
 </body>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
 
 </html>

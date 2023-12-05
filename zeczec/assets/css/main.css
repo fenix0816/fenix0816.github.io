@@ -266,6 +266,7 @@ hr.line {
     font-weight: 600;
 }
 
+
 .main-nav-wrap .donate-wrap {
     flex: 1;
 }
@@ -287,6 +288,7 @@ hr.line {
     color: #43946c;
     transition: 0.3s;
 }
+
 
 .donate-wrap .like-btn:hover {
     border-color: #55b987;
