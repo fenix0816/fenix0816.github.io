@@ -27,6 +27,14 @@ body {
     position: relative;
     font-size: 4rem;
     font-weight: 800;
+    text-shadow: #80bebd 1px 1px 6px;
+    font-family: 'Aoboshi One', serif;
+    box-shadow: #80bebd 0 0 8px 2px inset;
+}
+
+.countdown-item>div:first-child {
+    position: relative;
+    top: -10px;
 }
 
 .countdown-unit {
