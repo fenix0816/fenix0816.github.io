@@ -54,7 +54,3 @@ calc(end);
 setInterval(() => {
     calc(end);
 }, 1000)
-
-
-
-
