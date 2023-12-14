@@ -1,82 +1,62 @@
-class TODO {
-    #items
-    #el
+import { TODO } from './class/TODO.js';
+import { UID } from './class/UID.js';
 
-    constructor(el) {
-        this.#items = [];
-        this.#el = el;
-        this.init();
-    }
+let todoApp = document.querySelector('#todo-app');
+let uidApp = document.querySelector('#uid-app');
+let uid = UID.read();
 
-    add(text) {
-        if (text) {
-            this.#items.push({ checked: false, text: text })
+if (uid) {
+    todoApp.classList.add('active');
+    // TODO Application.
+    let elInput = document.querySelector('#todo-in');
+    let elAddBtn = document.querySelector('#todo-add-btn');
+    let elItem = document.querySelector('#todo-item');
+    let elChangeUid = document.querySelector('#change-uid-btn');
+    let todo = new TODO(elItem, uid);
+
+    const addTodo = () => {
+        let value = elInput.value;
+        if (!value) {
+            elInput.focus();
+            return; // void
         }
-    }
 
-    checkedToggle(index) {
-        if (this.#items[index]) {
-            this.#items[index].checked = !this.#items[index].checked
-            this.render();
-        }
-    }
-
-    render() {
-        let html = '';
-        this.#items.forEach((item, index) => {
-            let checked = item.checked ? 'checked' : '';
-
-            html += `<li data-index="${index}">
-                        <input type="checkbox" ${checked}>
-                        <span>${item.text}</span>
-                    </li>`
-        })
-        this.#el.innerHTML = html;
-    }
-
-    init() {
-        this.#el.addEventListener('click', (e) => {
-            let el = e.target;
-            let tag = el.tagName.toString().toUpperCase();
-
-            if (tag == 'SPAN' || tag == 'INPUT') {
-                el = el.parentNode;
-            }
-
-            if (el.tagName.toString().toUpperCase() == 'LI') {
-                let index = el.dataset.index;
-                this.checkedToggle(index);
-            }
-        })
-    }
-}
-
-let elInput = document.querySelector('#todo-in');
-let elAddBtn = document.querySelector('#todo-add-btn');
-let elItem = document.querySelector('#todo-item');
-let todo = new TODO(elItem);
-
-const addTodo = () => {
-    let value = elInput.value;
-    if (!value) {
+        elInput.value = '';
         elInput.focus();
-        return; // void
+
+        todo.add(value);
+        todo.render();
     }
 
-    elInput.value = '';
-    elInput.focus();
+    elAddBtn.addEventListener('click', (e) => {
+        addTodo();
+    })
 
-    todo.add(value);
-    todo.render();
+
+    elInput.addEventListener('keyup', (e) => {
+        if (e.key.toString().toUpperCase() == 'ENTER') {
+            addTodo();
+        }
+    })
+
+    elChangeUid.addEventListener('click', (e) => {
+        e.preventDefault();
+        UID.clear();
+        location.reload();
+    })
+} else {
+    uidApp.classList.add('active');
+
+    let elUid = document.querySelector('#todo-uid');
+    let elBtn = document.querySelector('#todo-uid-btn');
+    elBtn.addEventListener('click', (e) => {
+        let value = elUid.value;
+        if (value) {
+            UID.write(value);
+            location.reload();
+        }
+    })
 }
 
-elAddBtn.addEventListener('click', (e) => {
-    addTodo();
-})
 
 
-elInput.addEventListener('keyup', (e) => {
-    if (e.key.toString().toUpperCase() == 'ENTER') {
-        addTodo();
-    }
-})
