@@ -1,16 +1,15 @@
-import { LocalStorage } from "./LocalStorage.js";
-import { TODO_API } from './TODO_API.js'
+import { App } from '../Firebase/App.js'
+import { Database } from '../Firebase/Database.js'
 
-class TODO {
+class TodoRealtime {
     #items
     #el
-    #storage
     #uid
+    #database
 
     constructor(el, uid = 'todo') {
         this.#items = [];
         this.#el = el;
-        this.#storage = new LocalStorage(uid);
         this.#uid = uid;
         this.init();
     }
@@ -24,11 +23,12 @@ class TODO {
     }
 
     async write() {
-        await TODO_API.update(this.#uid, this.#items);
+        this.#database.write(this.#savePath(), this.#items);
+        // await TODO_API.update(this.#uid, this.#items);
     }
 
     async read() {
-        return await TODO_API.get(this.#uid)
+        // return await TODO_API.get(this.#uid)
     }
 
     checkedToggle(index) {
@@ -52,9 +52,35 @@ class TODO {
         this.#el.innerHTML = html;
     }
 
+
+    #savePath() {
+        return `todo/${this.#uid}`;
+    }
+
     async init() {
-        this.#items = await this.read();
-        this.render();
+        const app = await App.init();
+        this.#database = new Database(app);
+
+        this.#database.listen(this.#savePath(), (data) => {
+            // S1
+            // if (!data) {
+            //     this.#items = [];
+            // } else {
+            //     this.#items = data;
+            // }
+
+            // S2
+            // if (!data) {
+            //     data = [];
+            // }
+            // this.#items = data;
+
+            this.#items = data || []; // equal S1 and S2
+            this.render();
+        })
+
+        // this.#items = await this.read();
+        // this.render();
         this.#el.addEventListener('click', (e) => {
             let el = e.target;
             let tag = el.tagName.toString().toUpperCase();
@@ -91,4 +117,4 @@ class TODO {
     }
 }
 
-export { TODO }
+export { TodoRealtime }

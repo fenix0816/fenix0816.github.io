@@ -89,4 +89,74 @@ const doFetch = () => {
     console.log('doFetch run.')
 }
 
-doFetch();
+// doFetch();
+
+
+const doFetchPost = () => {
+    let api = 'https://book.niceinfos.com/frontend/api/'
+
+    let params = {
+        action: 'demo',
+        data: { a: 1, b: 2 },
+    }
+
+    let options = {
+        method: 'POST',
+        body: JSON.stringify(params),
+    }
+
+    fetch(api, options)
+        .then((response) => {
+            return response.text()
+            // return response.json()
+        })
+        .then((data) => {
+            console.log(data)
+        })
+}
+
+// doFetchPost();
+
+const doUploadFile = (file) => {
+    if (!file) {
+        return
+    }
+
+    let api = 'https://book.niceinfos.com/frontend/api/'
+
+    let form = new FormData()
+    form.append('action', 'upload')
+    form.append('file', file)
+
+    let options = {
+        method: 'POST',
+        body: form,
+    }
+
+    fetch(api, options)
+        .then((response) => {
+            return response.text()
+            // return response.json()
+        })
+        .then((data) => {
+            console.log(data)
+        })
+}
+
+let elUpload = {
+    file: document.querySelector('#upload-file'),
+    button: document.querySelector('#do-upload'),
+    preview: document.querySelector('#preview')
+}
+
+elUpload.button.addEventListener('click', (e) => {
+    let file = elUpload.file.files[0]
+
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        console.log(reader.result);
+        elUpload.preview.src = reader.result;
+    }
+    doUploadFile(file)
+})

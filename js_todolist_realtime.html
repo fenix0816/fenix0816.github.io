@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO List</title>
+    <title>TODO List Realtime</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/js_todolist.css">
 </head>
@@ -19,6 +19,7 @@
                     <a href="#" id="change-uid-btn">登出</a>
                 </div>
             </div>
+            <div>現在登入帳號: <span id="current-uid"></span></div>
             <div class="todo-input">
                 <input type="text" id="todo-in">
                 <button id="todo-add-btn">新增</button>
@@ -41,18 +42,8 @@
                 <button id="todo-uid-btn">確認</button>
             </div>
         </div>
-
-        <div>
-            <input type="file" id="upload-file" accept="image/*" />
-        </div>
-        <div>
-            <button id="do-upload">upload file</button>
-        </div>
-        <div>
-            <img src="" alt="" id="preview">
-        </div>
     </div>
 </body>
-<script type="module" src="assets/js/js_todolist.js"></script>
+<script type="module" src="assets/js/js_todolist_realtime.js"></script>
 
 </html>
